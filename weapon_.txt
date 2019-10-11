@@ -1,0 +1,120 @@
+// Alyx Gun
+
+//A test file to show what kind of edits I was making over some 15+ similar files
+
+WeaponData
+{
+	// Weapon data is loaded by both the Game and Client DLLs.
+			//what is this gun called?(\n Doesn'#t work for some reason...need to fix that)
+	"printname"	"9mm MP5 /n (Alyx's Gun)"
+			//what does this weapon look like? in the players hands and just in the world?
+	"viewmodel"				"models/weapons/v_smg_Mp5.mdl"
+	"playermodel"				"models/weapons/w_smg_Mp5.mdl"
+			//what animations do we use for this gun?
+	"anim_prefix"			"MP5"
+			//where does this gun appear in the users UI, X and Y positions, starting from 0. Mustn't conflict with other weapons or else BAD.
+	"bucket"				"1"
+	"bucket_position"		"0"
+			//How many bullets per clip?
+	"clip_size"				"30"
+			//if weapon has an altfire9EG: grenades) how many? -1 for none)
+	"clip2_size"			"-1"
+			//Defaults for the above values? have not messed with)
+	"default_clip"			"30"
+	"default_clip2"			"-1"
+			//Determines ammo type, max ammo, and weapon damage. This weapon uses pistol ammo, does pistol damage, and has the pistol max of 150
+	"primary_ammo"			"Pistol"
+			//Not totally sure what these are? They were int he original file but don't do what they should for some reason?
+	"BuiltRightHanded" "1"
+	"AllowFlipping" "1"
+			//I belive this is to do with controler vibration, if used with a controler.
+	"weight"				"2"
+	"item_flags"			"0"
+
+			//Relative positions for the ironsights, how far to mvoe the gun forward, how much to blur the edges, ETC. Copied form original MP5K files
+        Ironsight
+	{
+		//"forward"	"-10"
+		"right"		"2.05"
+		"up"		"0.8"
+		//"pitch"		"-3"
+		//"yaw"		"1"
+		//"roll"		"-20"
+		"fov"		"-20"
+		"blur"		"1.0"
+	}
+
+	// Sounds for the weapon. There is a max of 16 sounds per category (i.e. max 16 "single_shot" sounds)
+
+			//Sounds that the weapon uses under various situations. Certain sounds do not currently work.
+	SoundData
+	{
+
+		"reload"		"Weapon_SMG1.Reload"
+		"reload_npc"		"Weapon_SMG1.NPC_Reload"
+		"empty"			"Weapon_SMG1.Empty"
+		"single_shot"		"Weapon_Mp5Navy.Single"
+		"single_shot_npc"	"Weapon_SMG1.NPC_Single"
+		"special1"		"Weapon_SMG1.Special1"
+		"special2"		"Weapon_SMG1.Special2"
+		"double_shot"		"Weapon_SMG1.Double"
+		"burst"			"Weapon_SMG1.Burst"
+	}
+
+	// Weapon Sprite data is loaded by the Client DLL.
+
+		//Weapon info for the model and HUD
+	TextureData
+	{
+			//Shows the weapon in the hud
+		"weapon"
+		{
+				//This system uses A font file isntead of actual images to display weapons.
+				//Which font, which character
+				"font"		"WeaponIcons"
+				"character"	"f"
+		}
+		"weapon_s"
+				//when the weapon is slected. I don't know why you'd ever want two different ones as it's never used, but here are the hooks for it.
+		{	
+				"font"		"WeaponIconsSelected"
+				"character"	"f"
+		}
+				//icon to show this weapon has been picked up.
+		"weapon_small"
+		{
+				"font"		"WeaponIconsSmall"
+				"character"	"f"
+		}
+			//what icon to use for this weapons Ammo. In this case p for pistol, probably.
+		"ammo"
+		{
+				"font"		"WeaponIconsSmall"
+				"character"	"p"
+		}
+				//icon to use for the corsshair, also using the font system.
+		"crosshair"
+		{
+				"font"		"HL2MModCrosshairs"
+				"character"	"2"
+		}
+				//crosshair when ironsighted. some weapons change, and the colour also changes, but that's handled by a seperate file, and I didn't need to change it
+		"zoom"
+		{
+				"font"		"HL2MModCrosshairs"
+				"character"	"1"
+		}
+				//This handles the use of a different crosshair image when the corsshairs are over an enemy. Almost never used, but again, here's the hooks.
+		"autoaim"
+		{
+				"font"		"HL2MModCrosshairs"
+				"character"	"2"
+		}
+				//a seperate autoaim for when the player is ironsighted. Again, never used, but present.
+		"zoom_autoaim"
+		{
+				"font"		"HL2MModCrosshairs"
+				"character"	"1"
+		}
+	}
+}
